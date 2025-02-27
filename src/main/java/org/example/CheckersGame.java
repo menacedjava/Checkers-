@@ -56,22 +56,22 @@ public class CheckersGame extends JPanel {
             }
         }
     }
-//
-//    private boolean isCorrectTurn(int row, int col) {
-//        return (isRedTurn && board[row][col] == 2) || (!isRedTurn && board[row][col] == 1);
-//    }
-//
-//    private boolean isValidMove(int startRow, int startCol, int endRow, int endCol) {
-//        if (board[endRow][endCol] != 0 || (startRow + startCol) % 2 == 0 || (endRow + endCol) % 2 == 0) return false;
-//        int direction = (board[startRow][startCol] == 1) ? 1 : -1;
-//        if (endRow == startRow + direction && Math.abs(endCol - startCol) == 1) return true;
-//        if (endRow == startRow + 2 * direction && Math.abs(endCol - startCol) == 2) {
-//            int midRow = (startRow + endRow) / 2;
-//            int midCol = (startCol + endCol) / 2;
-//            return board[midRow][midCol] != 0 && board[midRow][midCol] != board[startRow][startCol];
-//        }
-//        return false;
-//    }
+
+    private boolean isCorrectTurn(int row, int col) {
+        return (isRedTurn && board[row][col] == 2) || (!isRedTurn && board[row][col] == 1);
+    }
+
+    private boolean isValidMove(int startRow, int startCol, int endRow, int endCol) {
+        if (board[endRow][endCol] != 0 || (startRow + startCol) % 2 == 0 || (endRow + endCol) % 2 == 0) return false;
+        int direction = (board[startRow][startCol] == 1) ? 1 : -1;
+        if (endRow == startRow + direction && Math.abs(endCol - startCol) == 1) return true;
+        if (endRow == startRow + 2 * direction && Math.abs(endCol - startCol) == 2) {
+            int midRow = (startRow + endRow) / 2;
+            int midCol = (startCol + endCol) / 2;
+            return board[midRow][midCol] != 0 && board[midRow][midCol] != board[startRow][startCol];
+        }
+        return false;
+    }
 //
 //    @Override
 //    protected void paintComponent(Graphics g) {
