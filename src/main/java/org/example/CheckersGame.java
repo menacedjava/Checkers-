@@ -15,36 +15,36 @@ public class CheckersGame extends JPanel {
     private boolean isRedTurn = true; // Qizil o‘yinchi boshlaydi
     private int selectedRow = -1, selectedCol = -1;
 
-//    public CheckersGame() {
-//        setPreferredSize(new Dimension(SIZE * CELL_SIZE, SIZE * CELL_SIZE));
-//        initializeBoard();
-//
-//        addMouseListener(new MouseAdapter() {
-//            @Override
-//            public void mousePressed(MouseEvent e) {
-//                int col = e.getX() / CELL_SIZE;
-//                int row = e.getY() / CELL_SIZE;
-//
-//                if (selectedRow == -1 && board[row][col] != 0 && isCorrectTurn(row, col)) {
-//                    selectedRow = row;
-//                    selectedCol = col;
-//                } else if (selectedRow != -1 && isValidMove(selectedRow, selectedCol, row, col)) {
-//                    board[row][col] = board[selectedRow][selectedCol];
-//                    board[selectedRow][selectedCol] = 0;
-//                    if (Math.abs(row - selectedRow) == 2) {
-//                        board[(selectedRow + row) / 2][(selectedCol + col) / 2] = 0; // O‘rtadagi donani o‘chirish
-//                    }
-//                    isRedTurn = !isRedTurn;
-//                    selectedRow = -1;
-//                    selectedCol = -1;
-//                } else {
-//                    selectedRow = -1;
-//                    selectedCol = -1;
-//                }
-//                repaint();
-//            }
-//        });
-//    }
+    public CheckersGame() {
+        setPreferredSize(new Dimension(SIZE * CELL_SIZE, SIZE * CELL_SIZE));
+        initializeBoard();
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int col = e.getX() / CELL_SIZE;
+                int row = e.getY() / CELL_SIZE;
+
+                if (selectedRow == -1 && board[row][col] != 0 && isCorrectTurn(row, col)) {
+                    selectedRow = row;
+                    selectedCol = col;
+                } else if (selectedRow != -1 && isValidMove(selectedRow, selectedCol, row, col)) {
+                    board[row][col] = board[selectedRow][selectedCol];
+                    board[selectedRow][selectedCol] = 0;
+                    if (Math.abs(row - selectedRow) == 2) {
+                        board[(selectedRow + row) / 2][(selectedCol + col) / 2] = 0; // O‘rtadagi donani o‘chirish
+                    }
+                    isRedTurn = !isRedTurn;
+                    selectedRow = -1;
+                    selectedCol = -1;
+                } else {
+                    selectedRow = -1;
+                    selectedCol = -1;
+                }
+                repaint();
+            }
+        });
+    }
 //
 //    private void initializeBoard() {
 //        for (int row = 0; row < SIZE; row++) {
