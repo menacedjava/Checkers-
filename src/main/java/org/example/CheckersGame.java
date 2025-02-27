@@ -72,37 +72,37 @@ public class CheckersGame extends JPanel {
         }
         return false;
     }
-//
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//
-//        // Taxtani chizish
-//        for (int row = 0; row < SIZE; row++) {
-//            for (int col = 0; col < SIZE; col++) {
-//                g.setColor((row + col) % 2 == 0 ? LIGHT : DARK);
-//                g.fillRect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-//
-//                if (board[row][col] == 1 || board[row][col] == 2) {
-//                    g.setColor(board[row][col] == 1 ? Color.BLACK : Color.RED);
-//                    g.fillOval(col * CELL_SIZE + 10, row * CELL_SIZE + 10, CELL_SIZE - 20, CELL_SIZE - 20);
-//                }
-//            }
-//        }
-//
-//        // Tanlangan donani chizish
-//        if (selectedRow != -1) {
-//            g.setColor(Color.YELLOW);
-//            g.drawRect(selectedCol * CELL_SIZE, selectedRow * CELL_SIZE, CELL_SIZE, CELL_SIZE);
-//        }
-//    }
-//
-//    public static void main(String[] args) {
-//        JFrame frame = new JFrame("Checkers");
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.add(new CheckersGame());
-//        frame.pack();
-//        frame.setLocationRelativeTo(null);
-//        frame.setVisible(true);
-//    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+
+        // Taxtani chizish
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                g.setColor((row + col) % 2 == 0 ? LIGHT : DARK);
+                g.fillRect(col * CELL_SIZE, row * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+                if (board[row][col] == 1 || board[row][col] == 2) {
+                    g.setColor(board[row][col] == 1 ? Color.BLACK : Color.RED);
+                    g.fillOval(col * CELL_SIZE + 10, row * CELL_SIZE + 10, CELL_SIZE - 20, CELL_SIZE - 20);
+                }
+            }
+        }
+
+        // Tanlangan donani chizish
+        if (selectedRow != -1) {
+            g.setColor(Color.YELLOW);
+            g.drawRect(selectedCol * CELL_SIZE, selectedRow * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+        }
+    }
+
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Checkers");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.add(new CheckersGame());
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+    }
 }
