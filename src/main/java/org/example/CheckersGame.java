@@ -6,13 +6,13 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class CheckersGame extends JPanel {
-    private static final int SIZE = 8; // 8x8 taxta
-    private static final int CELL_SIZE = 80; // Har bir hujayraning o‘lchami
+    private static final int SIZE = 8;
+    private static final int CELL_SIZE = 80;
     private static final Color DARK = new Color(139, 69, 19);
     private static final Color LIGHT = new Color(245, 222, 179);
 
-    private int[][] board = new int[SIZE][SIZE]; // 0 = bo‘sh, 1 = qora, 2 = qizil
-    private boolean isRedTurn = true; // Qizil o‘yinchi boshlaydi
+    private int[][] board = new int[SIZE][SIZE];
+    private boolean isRedTurn = true;
     private int selectedRow = -1, selectedCol = -1;
 
     public CheckersGame() {
@@ -32,7 +32,7 @@ public class CheckersGame extends JPanel {
                     board[row][col] = board[selectedRow][selectedCol];
                     board[selectedRow][selectedCol] = 0;
                     if (Math.abs(row - selectedRow) == 2) {
-                        board[(selectedRow + row) / 2][(selectedCol + col) / 2] = 0; // O‘rtadagi donani o‘chirish
+                        board[(selectedRow + row) / 2][(selectedCol + col) / 2] = 0;
                     }
                     isRedTurn = !isRedTurn;
                     selectedRow = -1;
@@ -45,17 +45,17 @@ public class CheckersGame extends JPanel {
             }
         });
     }
-//
-//    private void initializeBoard() {
-//        for (int row = 0; row < SIZE; row++) {
-//            for (int col = 0; col < SIZE; col++) {
-//                if ((row + col) % 2 == 1) {
-//                    if (row < 3) board[row][col] = 1; // Qora
-//                    else if (row > 4) board[row][col] = 2; // Qizil
-//                }
-//            }
-//        }
-//    }
+
+    private void initializeBoard() {
+        for (int row = 0; row < SIZE; row++) {
+            for (int col = 0; col < SIZE; col++) {
+                if ((row + col) % 2 == 1) {
+                    if (row < 3) board[row][col] = 1; // Qora
+                    else if (row > 4) board[row][col] = 2; // Qizil
+                }
+            }
+        }
+    }
 //
 //    private boolean isCorrectTurn(int row, int col) {
 //        return (isRedTurn && board[row][col] == 2) || (!isRedTurn && board[row][col] == 1);
